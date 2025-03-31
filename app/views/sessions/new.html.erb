@@ -26,6 +26,26 @@
           </div>
         <% end %>
         
+        <hr class="my-4">
+        
+        <div class="text-center mb-3">
+          <p class="text-muted">Or sign in with</p>
+        </div>
+        
+        <div class="d-grid gap-2">
+          <%= link_to '/auth/google_oauth2', class: 'btn btn-outline-danger' do %>
+            <i class="bi bi-google"></i> Sign in with Google
+          <% end %>
+          
+          <%= link_to '/auth/github', class: 'btn btn-outline-dark' do %>
+            <i class="bi bi-github"></i> Sign in with GitHub
+          <% end %>
+          
+          <%= link_to '/auth/twitter', class: 'btn btn-outline-info' do %>
+            <i class="bi bi-twitter"></i> Sign in with Twitter
+          <% end %>
+        </div>
+        
         <div class="mt-3 text-center">
           <p>Don't have an account? <%= link_to 'Sign up', new_user_path %></p>
           <p><%= link_to 'Forgot your password?', '#' %></p>

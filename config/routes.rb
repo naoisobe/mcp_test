@@ -6,8 +6,16 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   
+  # OAuth routes
+  get '/auth/:provider/callback', to: 'omniauth_callbacks#callback'
+  get '/auth/failure', to: 'omniauth_callbacks#failure'
+  
   # Resource routes
-  resources :users
+  resources :users do
+    member do
+      get :connect_oauth
+    end
+  end
   resources :posts
   
   # API routes
