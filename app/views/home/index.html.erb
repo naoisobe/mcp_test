@@ -1,0 +1,43 @@
+<div class="jumbotron">
+  <h1>Welcome to the Sample Rails App</h1>
+  <p>This is a demonstration of a Rails application with basic functionality.</p>
+  <p>
+    <%= link_to 'Users', users_path, class: 'btn btn-primary' %>
+    <%= link_to 'Posts', posts_path, class: 'btn btn-success' %>
+  </p>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h2>Features</h2>
+    <ul>
+      <li>User authentication</li>
+      <li>CRUD operations</li>
+      <li>API endpoints</li>
+      <li>Testing with RSpec</li>
+    </ul>
+  </div>
+  
+  <div class="col-md-4">
+    <h2>Latest Posts</h2>
+    <% @latest_posts.each do |post| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text"><%= truncate(post.content, length: 100) %></p>
+          <%= link_to 'Read more', post_path(post), class: 'btn btn-sm btn-info' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="col-md-4">
+    <h2>Resources</h2>
+    <ul>
+      <li><a href="https://guides.rubyonrails.org/">Rails Guides</a></li>
+      <li><a href="https://api.rubyonrails.org/">Rails API</a></li>
+      <li><a href="https://www.ruby-lang.org/">Ruby Language</a></li>
+      <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    </ul>
+  </div>
+</div>
