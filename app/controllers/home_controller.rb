@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    # Home page logic
+    @latest_posts = Post.published.recent
   end
   
   def about
