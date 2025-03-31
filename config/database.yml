@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: mcp_test_development
+  username: postgres
+  password: password
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: mcp_test_test
+  username: postgres
+  password: password
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: mcp_test_production
+  username: mcp_test
+  password: <%= ENV['MCP_TEST_DATABASE_PASSWORD'] %>
